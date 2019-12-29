@@ -4,13 +4,9 @@ import {connect} from 'react-redux';
 import {setLoginModal} from '../../redux/LoginModal/loginmodal.actions';
 
 import {
-  SafeAreaView,
   StyleSheet,
-  ScrollView,
   View,
   Text,
-  StatusBar,
-  Dimensions,
   TouchableOpacity
 } from 'react-native';
 
@@ -43,7 +39,7 @@ const styles = StyleSheet.create({
 
   
   const mapDispatchToProps = dispatch => ({
-    setLoginModal: value => dispatch(setLoginModal(value)) 
+    setLoginModal: () => dispatch(setLoginModal()) 
   })
   
   export default connect(null,mapDispatchToProps)(LoginButton);

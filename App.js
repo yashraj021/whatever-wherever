@@ -1,5 +1,6 @@
 import React from 'react';
-import LoginButton from './src/components/LoginButton/loginButton.component'
+import LoginButton from './src/components/LoginButton/loginButton.component';
+import LoginModal from './src/components/LoginModal/loginmodal.component';
 import {
   StyleSheet,
   View,
@@ -13,6 +14,7 @@ class App extends React.Component {
     return (
       <View style = {styles.auth}>
           <LoginButton/>
+          <LoginModal/>
       </View>
     )
   }
