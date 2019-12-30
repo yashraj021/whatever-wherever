@@ -1,5 +1,5 @@
 import React from 'react';
-import {dimension, dimensionScreen} from '../../constants/constants';
+import {dimension} from '../../constants/constants';
 import LoginArea from '../LoginArea/loginArea.component';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import {connect} from 'react-redux';
@@ -10,6 +10,7 @@ import { setForgotPasswordModalClose} from '../../redux/ForgetPasswordModal/forg
 import {DisableVerificationModal} from '../../redux/ForgotRegisterVerificationModal/forgotregisterverification.actions';
 import RegisterModal from '../RegisterModal/registermodal.component';
 import {DisableRegisterModal} from '../../redux/RegisterModal/registerModal.actions';
+import ExtraDimensions from 'react-native-extra-dimensions-android';
 
 
 import {
@@ -19,8 +20,7 @@ import {
   Text,
   Modal,
   Keyboard,
-  TouchableWithoutFeedback,
-  Dimensions
+  TouchableWithoutFeedback
 } from 'react-native';
 
 const PopUpModal = (props) => {
@@ -68,8 +68,7 @@ const modalWidth = dimension.width;
 
 const styles = StyleSheet.create({
     modalSlide: {
-        height: dimension.height,
-        top: dimensionScreen.height - dimension.height,
+        height: '100%',
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'column-reverse',
@@ -80,14 +79,15 @@ const styles = StyleSheet.create({
         backgroundColor: '#fafafa',
         height: modalHeight,
         borderTopRightRadius: 50,
-        borderTopLeftRadius: 50
+        borderTopLeftRadius: 50,
+        justifyContent: 'space-around'
     },
     
     header_login: {
-        marginBottom: 10,
+        
         width: modalWidth *0.5,
         fontFamily: 'Quicksand-Light',
-        fontSize: RFValue(20, dimensionScreen.height),
+        fontSize: RFValue(20),
         textAlign: "center",
         letterSpacing: 10,
     }
