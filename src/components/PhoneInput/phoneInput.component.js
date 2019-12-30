@@ -1,7 +1,7 @@
 import React from 'react';
 import {dimension} from '../../constants/constants';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
-import Icon from 'react-native-vector-icons/Ionicons';
+
 
 import {
   TextInput,
@@ -17,7 +17,7 @@ const PhoneInput = ({phoneInputHandler}) => {
                 <View style = {styles.phoneno_country}>
                     <Image
                         style = {{height: 15, width: 20}}
-                        source={require('./india.png')}
+                        source={require('../../../assets/india.png')}
                     />
                     <Text style = {{fontWeight: 'bold'}}>
                         +91

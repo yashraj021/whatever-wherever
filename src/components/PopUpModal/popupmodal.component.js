@@ -1,5 +1,5 @@
 import React from 'react';
-import {dimension} from '../../constants/constants';
+import {dimension, dimensionScreen} from '../../constants/constants';
 import LoginArea from '../LoginArea/loginArea.component';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import {connect} from 'react-redux';
@@ -19,7 +19,8 @@ import {
   Text,
   Modal,
   Keyboard,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
+  Dimensions
 } from 'react-native';
 
 const PopUpModal = (props) => {
@@ -68,6 +69,7 @@ const modalWidth = dimension.width;
 const styles = StyleSheet.create({
     modalSlide: {
         height: dimension.height,
+        top: dimensionScreen.height - dimension.height,
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'column-reverse',
@@ -82,10 +84,10 @@ const styles = StyleSheet.create({
     },
     
     header_login: {
-        height: modalHeight *0.2,
+        marginBottom: 10,
         width: modalWidth *0.5,
         fontFamily: 'Quicksand-Light',
-        fontSize: RFValue(20),
+        fontSize: RFValue(20, dimensionScreen.height),
         textAlign: "center",
         letterSpacing: 10,
     }

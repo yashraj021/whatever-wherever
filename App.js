@@ -1,6 +1,7 @@
 import React from 'react';
 import LoginButton from './src/components/LoginButton/loginButton.component';
 import PopUpModal from './src/components/PopUpModal/popupmodal.component';
+import {dimension, dimensionScreen} from './src/constants/constants';
 import {
   StyleSheet,
   View,
@@ -30,8 +31,8 @@ const styles = StyleSheet.create({
   auth: {
     height: '100%',
     width: '100%',
+    bottom: dimensionScreen.height - dimension.height,
     flexDirection: 'column',
-
     backgroundColor: 'white',
     display: "flex",
     justifyContent: 'space-around',

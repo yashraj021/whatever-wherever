@@ -606,6 +606,8 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable assets_india
+drawable assets_logo
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -837,6 +839,7 @@ mipmap ic_launcher_round
 raw app
 raw node_modules_reactnativevectoricons_glyphmaps_fontawesome
 raw node_modules_reactnativevectoricons_glyphmaps_ionicons
+raw node_modules_reactnativevectoricons_glyphmaps_materialcommunityicons
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
