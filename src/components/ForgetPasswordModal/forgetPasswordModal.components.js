@@ -2,7 +2,7 @@ import React from 'react';
 import {dimension} from '../../constants/constants';
 import PhoneInput from '../PhoneInput/phoneInput.component';
 import CircularButton from '../CircularButton/circularbutton.component';
-import {EnableVerificationModal} from '../../redux/ForgotVerificationModal/forgotverification.actions';
+import {EnableVerificationModal} from '../../redux/ForgotRegisterVerificationModal/forgotregisterverification.actions';
 import {connect} from 'react-redux';
 
 import {
