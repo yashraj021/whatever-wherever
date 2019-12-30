@@ -1,7 +1,7 @@
 import React from 'react';
 import {dimension} from '../../constants/constants';
 import {connect} from 'react-redux';
-import {setLoginModal} from '../../redux/LoginModal/loginmodal.actions';
+import {setLoginModalOpen} from '../../redux/LoginModal/loginmodal.actions';
 
 import {
   StyleSheet,
@@ -13,7 +13,7 @@ import {
 const LoginButton = ({setLoginModal}) => (
 
     <View>
-        <TouchableOpacity style = {styles.login} onPress = {() => setLoginModal()}>
+        <TouchableOpacity style = {styles.login} onPress = {() =>setLoginModal()}>
             <Text style = {styles.logInButton}>
               LOGIN
             </Text>
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
 
     login: {
       backgroundColor: 'black',
-      height: dimension.height * 0.08,
+      height: dimension.height * 0.06,
       width: dimension.width * 0.3,
       borderRadius: 5,
       justifyContent: 'center',
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
 
   
   const mapDispatchToProps = dispatch => ({
-    setLoginModal: () => dispatch(setLoginModal()) 
+    setLoginModal: () => dispatch(setLoginModalOpen()) 
   })
   
   export default connect(null,mapDispatchToProps)(LoginButton);

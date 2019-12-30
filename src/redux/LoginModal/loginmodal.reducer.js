@@ -1,17 +1,25 @@
-INITIAL_STATE = {
+const INITIAL_STATE = {
     modal: false
 }
 
 const loginModal = (state = INITIAL_STATE, action) => {
     switch ( action.type ) {
-        case 'SET_MODAL':
+        case 'SET_MODAL_OPEN':
             return {
                 ...state,
-                modal: !state.modal
+                modal: true
+            }
+        
+        case 'SET_MODAL_CLOSE':
+            return {
+                ...state,
+                modal: false
             }
 
         default:
-                return state;
+                return {
+                    ...state
+                };
     }
 }
 

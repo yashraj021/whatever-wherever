@@ -19,7 +19,12 @@ const PasswordInput = ({passwordInputHandler}) => {
                 {myIcon}
             </View>
             <View style = {{flex: 9, paddingLeft: 2}}>
-                <TextInput placeholder = 'Password' onChangeText = {event => passwordInputHandler(event)}/>
+                <TextInput 
+                    placeholder = 'Password'  
+                    onChangeText = {event => passwordInputHandler(event)}
+                    textContentType = 'password'
+                    secureTextEntry={true}
+                />
             </View>
         </View>
     )
@@ -33,7 +38,8 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        borderTopWidth: 0.5
     },
 
     passwordImg: {

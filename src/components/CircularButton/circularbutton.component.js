@@ -5,13 +5,12 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 import {
   StyleSheet,
-  View,
   TouchableOpacity
 } from 'react-native';
 
 const myIcon = <Icon name="chevron-right" size={40} color="white" />;
-const CircularButton = () => (
-        <TouchableOpacity style = {styles.circularButton}>
+const CircularButton = ({onPressHandler}) => (
+        <TouchableOpacity style = {styles.circularButton} onPress = {onPressHandler}>
             {myIcon}
         </TouchableOpacity>
 );
@@ -26,8 +25,8 @@ const styles = StyleSheet.create({
         height: modalHeight * 0.25,
         width: modalHeight * 0.25,
         borderRadius: 50,
-        top: RFValue(60),
-        right: RFValue(60),
+        top: RFValue(40),
+        right: RFValue(70),
         justifyContent: 'center',
         alignItems: 'center'
     }

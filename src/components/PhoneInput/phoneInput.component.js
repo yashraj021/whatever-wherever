@@ -16,7 +16,7 @@ const PhoneInput = ({phoneInputHandler}) => {
             <View style = {styles.phoneno}>
                 <View style = {styles.phoneno_country}>
                     <Image
-                        style = {{height: 15, width: 15}}
+                        style = {{height: 15, width: 20}}
                         source={require('./india.png')}
                     />
                     <Text style = {{fontWeight: 'bold'}}>
@@ -45,7 +45,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        borderBottomWidth: 0.5
     },
     phoneno_country: {
         

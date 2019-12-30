@@ -1,20 +1,17 @@
 import React from 'react';
 import {dimension} from '../../constants/constants';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
-import Icon from 'react-native-vector-icons/Ionicons';
 import CircularButton from '../CircularButton/circularbutton.component';
 import PhoneInput from '../PhoneInput/phoneInput.component';
 import PasswordInput from '../PasswordInput/passwordInput.component';
+import {connect} from 'react-redux';
+import {setForgotPasswordModalOpen} from '../../redux/ForgetPasswordModal/forgetpassword.actions';
 
 import {
-  TextInput,
   StyleSheet,
   View,
   Text,
-  Image,
 } from 'react-native';
-
-const myIcon = <Icon name="ios-lock" size={25} color="black" />;
 
 class LoginArea extends React.Component{
   
@@ -40,6 +37,14 @@ class LoginArea extends React.Component{
                     <PasswordInput passwordInputHandler = {this.passwordInputHandler} />
                 </View>
                 <CircularButton/>
+                <View style = {styles.recovery}>
+                    <Text style = {{borderRightWidth: 1, paddingRight: RFValue(10)}} onPress = {() => this.props.forgetPasswordModal()} >
+                        Forget Password?
+                    </Text>
+                    <Text style = {{marginLeft: RFValue(10)}}>
+                        Register
+                    </Text>
+                </View>
             </View>
         )
     }
@@ -50,20 +55,30 @@ const modalWidth = dimension.width;
 
 const styles = StyleSheet.create({
     loginArea: {
-        flex: 5,
         width: modalWidth,
-        
-
     },
 
     loginSpace: {
-        marginTop: modalHeight *0.15,
+        marginTop: modalHeight *0.1,
         backgroundColor: 'white',
         height: modalHeight * 0.4,
         width: modalWidth * 0.75,
         borderTopRightRadius: 50,
         borderBottomRightRadius: 50
+    },
+
+    recovery: {
+        marginTop: RFValue(10),
+        flexDirection: 'row',
+        alignItems: "center",
+        justifyContent: "center"
+        
     }
 })
 
-export default LoginArea;
+const mapDispatchToProps = dispatch => ({
+    forgetPasswordModal: () => dispatch(setForgotPasswordModalOpen())
+});
+
+
+export default connect(null, mapDispatchToProps)(LoginArea);
