@@ -7,7 +7,10 @@ import {setLoginModalClose} from '../../redux/LoginModal/loginmodal.actions';
 import ForgotPasswordModal from '../ForgetPasswordModal/forgetPasswordModal.components';
 import VerificationModal from '../VerificationModal/verificationModal.component';
 import { setForgotPasswordModalClose} from '../../redux/ForgetPasswordModal/forgetpassword.actions';
-import {DisableVerificationModal} from '../../redux/ForgotVerificationModal/forgotverification.actions';
+import {DisableVerificationModal} from '../../redux/ForgotRegisterVerificationModal/forgotregisterverification.actions';
+import RegisterModal from '../RegisterModal/registermodal.component';
+import {DisableRegisterModal} from '../../redux/RegisterModal/registerModal.actions';
+
 
 import {
   KeyboardAvoidingView,
@@ -21,34 +24,7 @@ import {
 
 const PopUpModal = (props) => {
 
-    const {modalState, modalClose, forgotPasswordState, forgotPassClose, verificationModal, verificationModalClose} = props;
-
-    const renderModal = () => {
-        if(forgotPasswordState){
-            return (
-                <View style = {styles.modalSpace}>
-                    <Text style = {styles.header_login}>
-                            'Forgot Password'
-                    </Text>
-                    <ForgotPasswordModal/>
-                </View>
-            )
-        }
-
-        else if(verificationModal){
-            return (
-                <View style = {styles.modalSpace}>
-                    <Text style = {styles.header_login}>
-                            'Verification'
-                    </Text>
-                    <VerificationModal/>
-                </View>
-            )
-        }
-        else {
-            
-        }
-    }
+    const {modalState, modalClose, forgotPasswordState, forgotPassClose, verificationModalState, verificationModalClose, registerModalState, registerModalClose} = props;
 
     return (
         <Modal
@@ -59,6 +35,7 @@ const PopUpModal = (props) => {
                 modalClose();
                 forgotPassClose();
                 verificationModalClose();
+                registerModalClose();
                 
             }
                 }
@@ -68,12 +45,13 @@ const PopUpModal = (props) => {
                     <View style = {styles.modalSpace}>
                         <Text style = {styles.header_login}>
                         {
-                            forgotPasswordState ? (verificationModal ? 'Verification' : 'Forgot Password') : 'Login' 
+                            forgotPasswordState ? (verificationModalState ? 'Verification' : 'Forgot Password') : 'Login' 
                         }
                         </Text>
                         {
-                            forgotPasswordState ? (verificationModal ? <VerificationModal/> : <ForgotPasswordModal/> ) : <LoginArea/>
+                            forgotPasswordState ? (verificationModalState ? <VerificationModal/> : <ForgotPasswordModal/> ) : (registerModalState ? (verificationModalState ? <VerificationModal/> : <RegisterModal/>): <LoginArea/>)  
                         }
+                
                     </View>
                 </KeyboardAvoidingView>
             </TouchableWithoutFeedback>
@@ -116,13 +94,15 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => ({
     modalState: state.loginModal.modal,
     forgotPasswordState: state.forgetPasswordModal.forgotPasswordModal,
-    verificationModal: state.verificationModal.verificationModalState
+    verificationModalState: state.verificationModal.verificationModalState,
+    registerModalState: state.registerModal.registerModal
 });
 
 const mapDispatchToProps = dispatch => ({
     modalClose: () => dispatch(setLoginModalClose()),
     forgotPassClose: () => dispatch(setForgotPasswordModalClose()),
-    verificationModalClose: () => dispatch(DisableVerificationModal())
+    verificationModalClose: () => dispatch(DisableVerificationModal()),
+    registerModalClose: () => dispatch(DisableRegisterModal())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PopUpModal);

@@ -5,7 +5,8 @@ import CircularButton from '../CircularButton/circularbutton.component';
 import PhoneInput from '../PhoneInput/phoneInput.component';
 import PasswordInput from '../PasswordInput/passwordInput.component';
 import {connect} from 'react-redux';
-import {setForgotPasswordModalOpen} from '../../redux/ForgetPasswordModal/forgetpassword.actions';
+import {setForgotPasswordModalOpen,setForgotPasswordModalClose} from '../../redux/ForgetPasswordModal/forgetpassword.actions';
+import {EnableRegisterModal, DisableRegisterModal} from '../../redux/RegisterModal/registerModal.actions';
 
 import {
   StyleSheet,
@@ -38,10 +39,10 @@ class LoginArea extends React.Component{
                 </View>
                 <CircularButton/>
                 <View style = {styles.recovery}>
-                    <Text style = {{borderRightWidth: 1, paddingRight: RFValue(10)}} onPress = {() => this.props.forgetPasswordModal()} >
+                    <Text style = {{borderRightWidth: 1, paddingRight: RFValue(10)}} onPress = {() => {this.props.registerModalClose(); this.props.forgetModalOpen()}} >
                         Forget Password?
                     </Text>
-                    <Text style = {{marginLeft: RFValue(10)}}>
+                    <Text style = {{marginLeft: RFValue(10)}} onPress = {() => { this.props.forgetModalClose(); this.props.registerModalOpen();}}>
                         Register
                     </Text>
                 </View>
@@ -77,7 +78,11 @@ const styles = StyleSheet.create({
 })
 
 const mapDispatchToProps = dispatch => ({
-    forgetPasswordModal: () => dispatch(setForgotPasswordModalOpen())
+    forgetModalOpen: () => dispatch(setForgotPasswordModalOpen()),
+    forgetModalClose: () => dispatch(setForgotPasswordModalClose()),
+
+    registerModalOpen: () => dispatch(EnableRegisterModal()),
+    registerModalClose: () => dispatch(DisableRegisterModal())
 });
 
 

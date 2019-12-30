@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux';  
 
-/* Import the reducers here */
+
 import loginModal from './LoginModal/loginmodal.reducer';
 import forgotPasswordReducer from './ForgetPasswordModal/forgetPassword.reducer'
-import forgotVerification from './ForgotVerificationModal/forgotverification.reducer';
+import forgotVerification from './ForgotRegisterVerificationModal/forgotregisterverification.reducer';
+import RegisterModalState from './RegisterModal/registerModal.reducer';
 
 export default combineReducers({
     loginModal: loginModal,
     forgetPasswordModal: forgotPasswordReducer,
-    verificationModal: forgotVerification
+    verificationModal: forgotVerification,
+    registerModal: RegisterModalState
 });
