@@ -25,9 +25,9 @@ const styles = StyleSheet.create({
         height: modalHeight * 0.25,
         width: modalHeight * 0.25,
         borderRadius: 50,
-        top: RFValue(40),
-        right: RFValue(70),
-        justifyContent: 'center',
+        top: RFValue(42),
+        right: RFValue(65),
+        justifyContent: 'space-around',
         alignItems: 'center'
     }
 });

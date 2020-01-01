@@ -1,6 +1,11 @@
 import React from 'react';
 import {dimension} from '../../constants/constants';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+import {enableNewPasswordModal} from '../../redux/NewPasswordModal/newPasswordModal.actions';
+import {connect} from 'react-redux';
+import {DisableVerificationModal} from '../../redux/ForgotRegisterVerificationModal/forgotregisterverification.actions';
+import {setForgotPasswordModalClose} from '../../redux/ForgetPasswordModal/forgetpassword.actions';
+import {DisableRegisterModal} from '../../redux/RegisterModal/registerModal.actions';
 
 
 import {
@@ -23,8 +28,17 @@ class VerificationModal extends React.Component {
     }
 
     submitHandler = () => {
-        let otpGenerated = parseInt(`${this.state.otp1}${this.state.otp2}${this.state.otp3}${this.state.otp4}`);
-        alert(`FOR TEST. OTP INPUT VALUE:- ${otpGenerated}`)
+        if(this.state.otp1 && this.state.otp2 && this.state.otp3 && this.state.otp1){
+            let otpGenerated = parseInt(`${this.state.otp1}${this.state.otp2}${this.state.otp3}${this.state.otp4}`);
+            alert(`FOR TEST. OTP INPUT VALUE:- ${otpGenerated}`);
+            if(this.props.NewPasswordSet)
+                this.props.newPasswordModalState();
+            else {
+                this.props.setForgotPasswordModalClose();
+                this.props.disableVerificationModal();
+                this.props.DisableRegisterModal();
+            }
+        } else alert('OTP field Empty.')
     }
 
     phoneInputHandler = (event) => {
@@ -49,6 +63,7 @@ class VerificationModal extends React.Component {
                             onChangeText={(event) => {
                                 this.setState({otp1: event}, () => {this.state.otp1 != ''? this.focusTheField('field2'): null; } )    
                             }}
+                            maxLength = {1}
                         />
                     </View>
 
@@ -60,6 +75,7 @@ class VerificationModal extends React.Component {
                             onChangeText={(event) => {
                                 this.setState({otp2: event}, () => {this.state.otp2 != ''? this.focusTheField('field3'): this.focusTheField('field1'); } )    
                             }}
+                            maxLength = {1}
                         />
                     </View>
 
@@ -71,6 +87,7 @@ class VerificationModal extends React.Component {
                             onChangeText={(event) => {
                                 this.setState({otp3: event}, () => {this.state.otp3 != ''? this.focusTheField('field4'): this.focusTheField('field2'); } )    
                             }}
+                            maxLength = {1}
                         />
                     </View>
 
@@ -80,6 +97,7 @@ class VerificationModal extends React.Component {
                             returnKeyType = {'done'}
                             ref={input => { this.inputs['field4'] = input }}
                             onChangeText = {(event) => this.setState({otp4: event}, () => {this.state.otp4 != ''? null : this.focusTheField('field3'); })}
+                            maxLength = {1}
                         />
                     </View>
                 </View>
@@ -118,14 +136,17 @@ const styles = StyleSheet.create({
     },
 
     otpArea: {
+        
+        flexDirection: 'column-reverse',
+        justifyContent: 'center',
         backgroundColor: '#f2f2f2',
-        height: modalHeight * 0.15,
-        width: modalHeight * 0.15,
+        height: modalHeight * 0.17,
+        width: modalHeight * 0.17,
     },
 
     otp: {
         fontFamily: 'Quicksand-Bold',
-        fontSize: 20,
+        fontSize: RFValue(15,dimension.height),
         textAlign: 'center'
     },
 
@@ -136,8 +157,8 @@ const styles = StyleSheet.create({
     },
 
     proceed_button: {
-        height: modalHeight * 0.12,
-        width: modalWidth * 0.2,
+        height: modalHeight * 0.15,
+        width: modalWidth * 0.3,
         backgroundColor: 'black',
         justifyContent: 'center',
         alignItems: 'center',
@@ -146,7 +167,15 @@ const styles = StyleSheet.create({
     }
 });
 
+const mapDispatchToProps = dispatch => ({
+    newPasswordModalState: () => dispatch(enableNewPasswordModal()),
+    disableVerificationModal: () => dispatch(DisableVerificationModal()),
+    setForgotPasswordModalClose: () => dispatch(setForgotPasswordModalClose()),
+    DisableRegisterModal: () => dispatch(DisableRegisterModal())
+})
 
-export default VerificationModal;
+
+
+export default connect(null,mapDispatchToProps)(VerificationModal);
 
 

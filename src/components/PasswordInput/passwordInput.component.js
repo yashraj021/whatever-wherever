@@ -12,9 +12,9 @@ import {
   Image,
 } from 'react-native';
 
-const PasswordInput = ({passwordInputHandler}) => {
+const PasswordInput = ({passwordInputHandler, NewPassword}) => {
     return(
-        <View style = {styles.password}>
+        <View style = { NewPassword ? styles.newPassword: styles.password}>
             <View style = {styles.passwordImg}>
                 {myIcon}
             </View>
@@ -33,13 +33,22 @@ const PasswordInput = ({passwordInputHandler}) => {
 const modalHeight = dimension.height * 0.35;
 const modalWidth = dimension.width;
 
-const styles = StyleSheet.create({
-    password: {
+const defaultPasswordStyle = {
         flex: 1,
         flexDirection: 'row',
         justifyContent: "center",
         alignItems: "center",
+        
+}
+const styles = StyleSheet.create({
+    password: {
+        ...defaultPasswordStyle,
         borderTopWidth: 0.5
+    },
+
+    newPassword: {
+        ...defaultPasswordStyle,
+        
     },
 
     passwordImg: {

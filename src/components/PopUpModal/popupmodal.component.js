@@ -10,7 +10,8 @@ import { setForgotPasswordModalClose} from '../../redux/ForgetPasswordModal/forg
 import {DisableVerificationModal} from '../../redux/ForgotRegisterVerificationModal/forgotregisterverification.actions';
 import RegisterModal from '../RegisterModal/registermodal.component';
 import {DisableRegisterModal} from '../../redux/RegisterModal/registerModal.actions';
-import ExtraDimensions from 'react-native-extra-dimensions-android';
+import NewPassswordModal from '../NewPasswordModal/newPassword.component';
+import {disableNewPasswordModal} from '../../redux/NewPasswordModal/newPasswordModal.actions';
 
 
 import {
@@ -25,7 +26,7 @@ import {
 
 const PopUpModal = (props) => {
 
-    const {modalState, modalClose, forgotPasswordState, forgotPassClose, verificationModalState, verificationModalClose, registerModalState, registerModalClose} = props;
+    const {modalState, modalClose, forgotPasswordState, forgotPassClose, verificationModalState, verificationModalClose, registerModalState, registerModalClose, NewPassswordModalState, disableNewPasswordModal} = props;
 
     return (
         <Modal
@@ -37,24 +38,26 @@ const PopUpModal = (props) => {
                 forgotPassClose();
                 verificationModalClose();
                 registerModalClose();
+                disableNewPasswordModal();
                 
             }
                 }
         >
             <TouchableWithoutFeedback onPress = {Keyboard.dismiss}>
-                <KeyboardAvoidingView style = {styles.modalSlide} behavior='padding'>
+                <View style = {styles.modalSlide} behavior='padding'>
                     <View style = {styles.modalSpace}>
                         <Text style = {styles.header_login}>
                         {
-                            forgotPasswordState ? (verificationModalState ? 'Verification' : 'Forgot Password') : 'Login' 
+                            forgotPasswordState ? (verificationModalState ? 'Verification' : 'Forgot Password' ) : (registerModalState ? (verificationModalState ? 'Verification' : 'Register'): 'Login') 
                         }
                         </Text>
                         {
-                            forgotPasswordState ? (verificationModalState ? <VerificationModal/> : <ForgotPasswordModal/> ) : (registerModalState ? (verificationModalState ? <VerificationModal/> : <RegisterModal/>): <LoginArea/>)  
+                            forgotPasswordState ? (verificationModalState ?(verificationModalState && NewPassswordModalState ? <NewPassswordModal/> : <VerificationModal NewPasswordSet/>)  : <ForgotPasswordModal/> ) : (registerModalState ? (verificationModalState ? <VerificationModal/> : <RegisterModal/>): <LoginArea/>)  
                         }
+                       
                 
                     </View>
-                </KeyboardAvoidingView>
+                </View>
             </TouchableWithoutFeedback>
         </Modal>
     
@@ -63,7 +66,7 @@ const PopUpModal = (props) => {
 
 
 
-const modalHeight = dimension.height * 0.30;
+const modalHeight = dimension.height * 0.40;
 const modalWidth = dimension.width;
 
 const styles = StyleSheet.create({
@@ -74,18 +77,17 @@ const styles = StyleSheet.create({
         flexDirection: 'column-reverse',
     },
     modalSpace: {
+        height: '33%',
         display: 'flex',
         alignItems: 'center',
         backgroundColor: '#fafafa',
-        height: modalHeight,
         borderTopRightRadius: 50,
         borderTopLeftRadius: 50,
         justifyContent: 'space-around'
     },
     
     header_login: {
-        
-        width: modalWidth *0.5,
+        paddingTop: 10,
         fontFamily: 'Quicksand-Light',
         fontSize: RFValue(20),
         textAlign: "center",
@@ -97,14 +99,16 @@ const mapStateToProps = state => ({
     modalState: state.loginModal.modal,
     forgotPasswordState: state.forgetPasswordModal.forgotPasswordModal,
     verificationModalState: state.verificationModal.verificationModalState,
-    registerModalState: state.registerModal.registerModal
+    registerModalState: state.registerModal.registerModal,
+    NewPassswordModalState: state.newPasswordModal.newPasswordModalState
 });
 
 const mapDispatchToProps = dispatch => ({
     modalClose: () => dispatch(setLoginModalClose()),
     forgotPassClose: () => dispatch(setForgotPasswordModalClose()),
     verificationModalClose: () => dispatch(DisableVerificationModal()),
-    registerModalClose: () => dispatch(DisableRegisterModal())
+    registerModalClose: () => dispatch(DisableRegisterModal()),
+    disableNewPasswordModal: () => dispatch(disableNewPasswordModal())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PopUpModal);

@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
 });
 
 const mapDispatchToProps = dispatch => ({
-    verificationModal: (value) => dispatch(EnableVerificationModal(value))
+    verificationModal: (value) => dispatch(EnableVerificationModal(value)),
 });
 
 export default connect(null, mapDispatchToProps)(ForgotPasswordModal);

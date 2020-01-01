@@ -1,8 +1,7 @@
 import React from 'react';
 import LoginButton from './src/components/LoginButton/loginButton.component';
 import PopUpModal from './src/components/PopUpModal/popupmodal.component';
-import {dimension, dimensionScreen} from './src/constants/constants';
-import ExtraDimensions from 'react-native-extra-dimensions-android';
+
 import {
   StyleSheet,
   View,

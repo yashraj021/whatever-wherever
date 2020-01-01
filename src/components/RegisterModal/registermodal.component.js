@@ -72,9 +72,8 @@ const styles = StyleSheet.create({
     },
 
     registerSpace: {
-        marginTop: modalHeight *0.04,
         backgroundColor: 'white',
-        height: modalHeight * 0.5,
+        height: modalHeight * 0.6,
         width: modalWidth * 0.75,
         borderTopRightRadius: 50,
         borderBottomRightRadius: 50
