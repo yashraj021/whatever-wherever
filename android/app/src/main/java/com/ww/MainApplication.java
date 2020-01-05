@@ -4,6 +4,7 @@ package com.ww;
  import com.facebook.react.shell.MainReactPackage;
  import com.facebook.react.ReactPackage;
 
+import com.oblador.vectoricons.VectorIconsPackage;
 import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
@@ -40,6 +41,7 @@ public class MainApplication extends NavigationApplication {
         // Add additional packages you require here
         // No need to add RnnPackage and MainReactPackage
         return Arrays.<ReactPackage>asList(
+            new VectorIconsPackage()
             
         );
     }

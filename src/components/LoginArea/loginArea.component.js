@@ -7,6 +7,8 @@ import PasswordInput from '../PasswordInput/passwordInput.component';
 import {connect} from 'react-redux';
 import {setForgotPasswordModalOpen,setForgotPasswordModalClose} from '../../redux/ForgetPasswordModal/forgetpassword.actions';
 import {EnableRegisterModal, DisableRegisterModal} from '../../redux/RegisterModal/registerModal.actions';
+import {loggedIn} from '../../redux/LoginLogout/loginlogout.action';
+import {goToTabs} from '../../Navigation/navigation';
 
 import {
   StyleSheet,
@@ -29,6 +31,11 @@ class LoginArea extends React.Component{
         this.setState({password: event})
     }
 
+    logInHandler = () => {
+        this.props.setLogIn();
+        goToTabs();
+    }
+
     render() {
 
         return(
@@ -37,7 +44,7 @@ class LoginArea extends React.Component{
                     <PhoneInput phoneInputHandler = {this.phoneInputHandler}/>
                     <PasswordInput passwordInputHandler = {this.passwordInputHandler} />
                 </View>
-                <CircularButton/>
+                <CircularButton onPressHandler= {this.logInHandler}/>
                 <View style = {styles.recovery}>
                     <Text style = {{borderRightWidth: 1, paddingRight: RFValue(10)}} onPress = {() => {this.props.registerModalClose(); this.props.forgetModalOpen()}} >
                         Forget Password?
@@ -80,9 +87,9 @@ const styles = StyleSheet.create({
 const mapDispatchToProps = dispatch => ({
     forgetModalOpen: () => dispatch(setForgotPasswordModalOpen()),
     forgetModalClose: () => dispatch(setForgotPasswordModalClose()),
-
     registerModalOpen: () => dispatch(EnableRegisterModal()),
-    registerModalClose: () => dispatch(DisableRegisterModal())
+    registerModalClose: () => dispatch(DisableRegisterModal()),
+    setLogIn: () => dispatch(loggedIn())
 });
 
 

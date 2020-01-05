@@ -21,6 +21,9 @@ class AuthScreen extends React.Component {
           />
           <LoginButton/>
           <PopUpModal/>
+          {
+            console.log("AuthScreen", this.props.componentId)
+          }
       </View>
     )
   }

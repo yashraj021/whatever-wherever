@@ -2,6 +2,7 @@ import React from 'react';
 import {dimension} from '../../constants/constants';
 import {connect} from 'react-redux';
 import {setLoginModalOpen} from '../../redux/LoginModal/loginmodal.actions';
+import {goToTabs} from '../../Navigation/navigation';
 
 import {
   StyleSheet,
