@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         width: modalHeight * 0.25,
         borderRadius: 50,
         top: RFValue(42),
-        right: RFValue(65),
+        right: RFValue(75,dimension.height),
         justifyContent: 'space-around',
         alignItems: 'center'
     }
