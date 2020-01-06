@@ -13,6 +13,7 @@ class AuthScreen extends React.Component {
   
 
   render() {
+    console.log(this.props.componentId)
     return (
       <View style = {styles.auth}>
           <Image

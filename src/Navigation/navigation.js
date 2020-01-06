@@ -1,19 +1,14 @@
 import { Navigation } from "react-native-navigation";
 import { Provider } from 'react-redux'; 
-import store from '../redux/store';
-import React from 'react';
 import Icon from 'react-native-vector-icons/Entypo';
-
-import Store from '../screens/Store/store';
-
-const iconColor = "#444";
-const selectedIconColor = "#0089da";
-
-
 
 export const goToTabs = () => {
 
-  Promise.all([Icon.getImageSource('shop', 50, 'black').then(source => source)]).then(
+  Promise.all([Icon.getImageSource('shop', 50, 'black'),
+  Icon.getImageSource('flash', 50, 'black'),
+  Icon.getImageSource('shopping-cart', 50, 'black'),
+  Icon.getImageSource('user', 50, 'black')
+  .then(source => source)]).then(
     source => {
       Navigation.setRoot({
         root: {
@@ -45,8 +40,40 @@ export const goToTabs = () => {
                   options: {
                     bottomTab: {
                       fontSize: 11,
-                      text: "Shop",
-                      icon: source[0],
+                      text: "Flash",
+                      icon: source[1],
+                      
+                    }
+                  }
+    
+                  // pass the username as a navigation prop to the Home screen
+                },
+                
+              },
+              {
+                component: {
+                  name: "ww.Store",
+                  options: {
+                    bottomTab: {
+                      fontSize: 11,
+                      text: "Cart",
+                      icon: source[2],
+                      
+                    }
+                  }
+    
+                  // pass the username as a navigation prop to the Home screen
+                },
+                
+              },
+              {
+                component: {
+                  name: "ww.Store",
+                  options: {
+                    bottomTab: {
+                      fontSize: 11,
+                      text: "Profile",
+                      icon: source[3],
                       
                     }
                   }

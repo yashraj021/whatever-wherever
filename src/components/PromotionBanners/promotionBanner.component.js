@@ -54,15 +54,17 @@ const styles = StyleSheet.create({
     },
 
     promotion: {
-        height: dimension.height * 0.15,
-        width: dimension.width * 0.55,
-        marginRight: 10
+        elevation: 13,
+        height: dimension.height * 0.25,
+        width: dimension.width * 0.9,
+        marginRight: 10,
+        borderRadius: 5
     },
 
     banner: {
         height: '100%',
         width: '100%',
-        borderRadius: 5
+        borderRadius: 5,
     }
 
 });

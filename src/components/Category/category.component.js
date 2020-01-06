@@ -1,5 +1,6 @@
 import React from 'react';
 import {dimension} from '../../constants/constants';
+import { Navigation} from 'react-native-navigation';
 import {category} from '../../data/category';
 import {
     StyleSheet,
@@ -12,10 +13,25 @@ import {
   
   } from 'react-native';
 
-  const categoryItems = () => {
+  const productPage = (props, id) => {
+    Navigation.showModal({
+        stack: {
+          children: [{
+            component: {
+              name: 'ww.Products',
+              passProps: {
+                id: id
+              }
+            }
+          }]
+        }
+      });
+  }
+
+  const categoryItems = (props) => {
       return category.map(value => {
         return (
-            <TouchableOpacity key = {Math.random()} style = {styles.category}>
+            <TouchableOpacity key = {value.id} style = {styles.category} onPress = {() => productPage(props, value.id)}>
                 <ImageBackground source={value.Icon} style={{width: '100%', height: '100%', flexDirection: 'column-reverse', borderRadius: 10}}>
                     <View style = {styles.productName}>
                         <Text style = {{color: 'white', textAlign: 'center'}}>
@@ -27,33 +43,24 @@ import {
     )})
   };
 
-const Category = () => (
-    
-    <ScrollView contentContainerStyle = {styles.categoryWrapper}>
-        {/* <View style = {styles.storeWrapper}>
-            <View style = {styles.shopIcon}>
-
-            </View>
-            <View style = {styles.shopDetails}>
-
-            </View>
-        </View> */}
+const Category = (props) => (
+    <ScrollView 
+        contentContainerStyle = {styles.categoryWrapper}
+        showsVerticalScrollIndicator = {false}
+    >
         {
-            categoryItems()
+            categoryItems(props)
         }
-        
-        
         <View style = {styles.trending}>
 
-        </View>
-
-        
+        </View>   
     </ScrollView>
 );
 
 const styles = StyleSheet.create({
 
     categoryWrapper: {
+        width: '100%',
         justifyContent: 'space-around',
         flexDirection: 'row',
         flexWrap: 'wrap',
@@ -62,6 +69,7 @@ const styles = StyleSheet.create({
     },
 
     category: {
+        elevation: 10,
         height: dimension.height * 0.18,
         width: dimension.height * 0.18,
         maxHeight: 150,
@@ -71,43 +79,22 @@ const styles = StyleSheet.create({
         backgroundColor: '#f2f2f2',
         marginRight: 10,
         marginTop: 10,
+        marginBottom: 10,
         borderRadius: 4,
         overflow: 'hidden'
     },
 
     trending: {
+        
         width: '100%',
-        height: dimension.height * 0.2,
+        height: dimension.height * 0.25,
         backgroundColor: '#f2f2f2',
-        marginTop: 10,
+        marginTop: 30,
     },
 
     productName: {
         backgroundColor: 'black'
     }
-
-    // storeWrapper: {
-    //     height: 100,
-    //     flexDirection: 'row',
-    //     justifyContent: 'space-between',
-    //     alignItems: 'center'
-    // },
-
-    // shopIcon: {
-    //     flex: 2,
-    //     height: 80,
-    //     width: 80,
-    //     backgroundColor: 'red',
-    //     marginRight: 10
-    // },
-
-    // shopDetails: {
-    //     flex: 5,
-    //     height: '80%',
-    //     width: '100%',
-    //     backgroundColor: 'green'
-    // }
-
 });
 
 export default Category;

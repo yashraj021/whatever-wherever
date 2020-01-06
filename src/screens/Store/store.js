@@ -19,7 +19,10 @@ import {
 
 const Store = (props) => {
     
-        
+        // BackHandler.addEventListener('hardwareBackPress',() => {
+            
+        //     return true;
+        // })
 
         return( 
             <View style = {styles.parentScreen}>
@@ -28,11 +31,11 @@ const Store = (props) => {
                 <BannerView/>
                 <View style = {styles.stores}>
                     <View style = {{justifyContent: 'center'}}>
-                        <Text style = {{fontSize: 16, justifyContent: 'center'}}>
+                        <Text style = {{fontSize: 16, justifyContent: 'center',marginBottom: 10}}>
                             Categories
                         </Text>
                     </View>
-                    <Category/>
+                    <Category {...props}/>
                 </View>
             </View>
             )
@@ -47,13 +50,13 @@ const styles = StyleSheet.create({
     },
     
     header: {
-        height: 55,
+        height: 50,
         width: '100%',
-        backgroundColor: 'red'
+        
     },
 
     stores: {
-        flex: 3,
+        flex: 2,
         paddingLeft: 20,
         paddingRight: 20
     },
