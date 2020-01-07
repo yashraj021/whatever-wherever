@@ -1,11 +1,14 @@
 import React from 'react';
 import LoginButton from '../../components/LoginButton/loginButton.component';
 import PopUpModal from '../../components/PopUpModal/popupmodal.component';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+import {dimension} from '../../constants/constants';
 
 import {
   StyleSheet,
   View,
-  Image
+  Image,
+  Text
 } from 'react-native';
 
 
@@ -20,11 +23,11 @@ class AuthScreen extends React.Component {
             source = {require('../../../assets/Logo.png')}
             style = {{height: 300, width: 200}}
           />
+          <Text style = {{fontFamily: 'Khula-Bold', fontSize: RFValue(45, dimension.height), fontStyle: 'italic', letterSpacing: -3, color: '#301ca3' }}>
+            WHATEVER   WHEREVER
+          </Text>
           <LoginButton/>
           <PopUpModal/>
-          {
-            console.log("AuthScreen", this.props.componentId)
-          }
       </View>
     )
   }

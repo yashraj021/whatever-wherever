@@ -39,6 +39,11 @@
 		9E2A287DCC844852AC759B1F /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB9982CF85C24AE398E0F2ED /* Zocial.ttf */; };
 		E4E9925C612D4AEF9026861D /* BalooBhai-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61736F7F3E18431DA28BE515 /* BalooBhai-Regular.ttf */; };
 		4F499B26A3FE4F398A89FDDD /* BarlowSemiCondensed-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D40A10C3FE5443793066762 /* BarlowSemiCondensed-Medium.ttf */; };
+		D360A6D004D145148698B866 /* Khula-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E55BE350799F42219B6780A3 /* Khula-Bold.ttf */; };
+		AE17BDA3F3FE49C7BE32732F /* Khula-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 441666C5C7DB4E3CA0AE9A97 /* Khula-ExtraBold.ttf */; };
+		7563529B05504CBDB68C9B48 /* Khula-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F7CA11CD3944F4B997724B3 /* Khula-Light.ttf */; };
+		D60C2597725B43808C3B9374 /* Khula-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 96F67D2C4C934364BB3EE36C /* Khula-Regular.ttf */; };
+		10477276B1214593A38F180B /* Khula-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55043E99C0AF49DAB1C69236 /* Khula-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +102,11 @@
 		AB9982CF85C24AE398E0F2ED /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		61736F7F3E18431DA28BE515 /* BalooBhai-Regular.ttf */ = {isa = PBXFileReference; name = "BalooBhai-Regular.ttf"; path = "../assets/fonts/BalooBhai-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		7D40A10C3FE5443793066762 /* BarlowSemiCondensed-Medium.ttf */ = {isa = PBXFileReference; name = "BarlowSemiCondensed-Medium.ttf"; path = "../assets/fonts/BarlowSemiCondensed-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E55BE350799F42219B6780A3 /* Khula-Bold.ttf */ = {isa = PBXFileReference; name = "Khula-Bold.ttf"; path = "../assets/fonts/Khula-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		441666C5C7DB4E3CA0AE9A97 /* Khula-ExtraBold.ttf */ = {isa = PBXFileReference; name = "Khula-ExtraBold.ttf"; path = "../assets/fonts/Khula-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3F7CA11CD3944F4B997724B3 /* Khula-Light.ttf */ = {isa = PBXFileReference; name = "Khula-Light.ttf"; path = "../assets/fonts/Khula-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		96F67D2C4C934364BB3EE36C /* Khula-Regular.ttf */ = {isa = PBXFileReference; name = "Khula-Regular.ttf"; path = "../assets/fonts/Khula-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		55043E99C0AF49DAB1C69236 /* Khula-SemiBold.ttf */ = {isa = PBXFileReference; name = "Khula-SemiBold.ttf"; path = "../assets/fonts/Khula-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +240,11 @@
 				AB9982CF85C24AE398E0F2ED /* Zocial.ttf */,
 				61736F7F3E18431DA28BE515 /* BalooBhai-Regular.ttf */,
 				7D40A10C3FE5443793066762 /* BarlowSemiCondensed-Medium.ttf */,
+				E55BE350799F42219B6780A3 /* Khula-Bold.ttf */,
+				441666C5C7DB4E3CA0AE9A97 /* Khula-ExtraBold.ttf */,
+				3F7CA11CD3944F4B997724B3 /* Khula-Light.ttf */,
+				96F67D2C4C934364BB3EE36C /* Khula-Regular.ttf */,
+				55043E99C0AF49DAB1C69236 /* Khula-SemiBold.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -394,6 +409,11 @@
 				9E2A287DCC844852AC759B1F /* Zocial.ttf in Resources */,
 				E4E9925C612D4AEF9026861D /* BalooBhai-Regular.ttf in Resources */,
 				4F499B26A3FE4F398A89FDDD /* BarlowSemiCondensed-Medium.ttf in Resources */,
+				D360A6D004D145148698B866 /* Khula-Bold.ttf in Resources */,
+				AE17BDA3F3FE49C7BE32732F /* Khula-ExtraBold.ttf in Resources */,
+				7563529B05504CBDB68C9B48 /* Khula-Light.ttf in Resources */,
+				D60C2597725B43808C3B9374 /* Khula-Regular.ttf in Resources */,
+				10477276B1214593A38F180B /* Khula-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

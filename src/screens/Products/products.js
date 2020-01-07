@@ -7,7 +7,8 @@ import {
     StyleSheet,
     View,
     Text,
-    FlatList
+    FlatList,
+    TouchableOpacity
   
   } from 'react-native';
 
@@ -18,11 +19,11 @@ import {
         <View style = {styles.storeWrapper}>
             <View style = {styles.shopIcon}>
             </View>
-            <View style = {styles.shopDetails}>
+            <TouchableOpacity style = {styles.shopDetails}>
                 <Text style = {styles.storeName}>
                     {value.name}
                 </Text>
-            </View>
+            </TouchableOpacity>
         </View>
     );
   }

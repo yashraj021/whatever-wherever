@@ -7,7 +7,11 @@ export const goToTabs = () => {
   Promise.all([Icon.getImageSource('shop', 50, 'black'),
   Icon.getImageSource('flash', 50, 'black'),
   Icon.getImageSource('shopping-cart', 50, 'black'),
-  Icon.getImageSource('user', 50, 'black')
+  Icon.getImageSource('user', 50, 'black'),
+  Icon.getImageSource('shop', 50, 'red'),
+  Icon.getImageSource('flash', 50, 'blue'),
+  Icon.getImageSource('shopping-cart', 50, 'green'),
+  Icon.getImageSource('user', 50, 'purple')
   .then(source => source)]).then(
     source => {
       Navigation.setRoot({
@@ -26,6 +30,7 @@ export const goToTabs = () => {
                       fontSize: 11,
                       text: "Shop",
                       icon: source[0],
+                      selectedIcon: source[4]
                       
                     }
                   }
@@ -40,8 +45,9 @@ export const goToTabs = () => {
                   options: {
                     bottomTab: {
                       fontSize: 11,
-                      text: "Flash",
+                      text: "Sale",
                       icon: source[1],
+                      selectedIcon: source[5]
                       
                     }
                   }
@@ -58,6 +64,7 @@ export const goToTabs = () => {
                       fontSize: 11,
                       text: "Cart",
                       icon: source[2],
+                      selectedIcon: source[6]
                       
                     }
                   }
@@ -74,6 +81,7 @@ export const goToTabs = () => {
                       fontSize: 11,
                       text: "Profile",
                       icon: source[3],
+                      selectedIcon: source[7]
                       
                     }
                   }
