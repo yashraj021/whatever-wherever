@@ -13,14 +13,14 @@ import {
   
   } from 'react-native';
 
-  const productPage = (props, id) => {
+  const productPage = (props, value) => {
     Navigation.showModal({
         stack: {
           children: [{
             component: {
               name: 'ww.Products',
               passProps: {
-                id: id
+                value
               }
             }
           }]
@@ -31,7 +31,7 @@ import {
   const categoryItems = (props) => {
       return category.map(value => {
         return (
-            <TouchableOpacity key = {value.id} style = {styles.category} onPress = {() => productPage(props, value.id)}>
+            <TouchableOpacity key = {value.id} style = {styles.category} onPress = {() => productPage(props, value)}>
                 <ImageBackground source={value.Icon} style={{width: '100%', height: '100%', flexDirection: 'column-reverse', borderRadius: 10}}>
                     <View style = {styles.productName}>
                         <Text style = {{color: 'white', textAlign: 'center'}}>

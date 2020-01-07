@@ -31,7 +31,7 @@ const Store = (props) => {
                 <BannerView/>
                 <View style = {styles.stores}>
                     <View style = {{justifyContent: 'center'}}>
-                        <Text style = {{fontSize: 16, justifyContent: 'center',marginBottom: 10}}>
+                        <Text style = {{fontSize: 20, justifyContent: 'center',marginBottom: 10, fontFamily: 'BalooBhai-Regular'}}>
                             Categories
                         </Text>
                     </View>
