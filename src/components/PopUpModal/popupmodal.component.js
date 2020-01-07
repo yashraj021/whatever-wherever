@@ -51,6 +51,9 @@ const PopUpModal = (props) => {
                             forgotPasswordState ? (verificationModalState ? 'Verification' : 'Forgot Password' ) : (registerModalState ? (verificationModalState ? 'Verification' : 'Register'): 'Login') 
                         }
                         </Text>
+                        <Text>
+                            *Test Input*
+                        </Text>
                         {
                             forgotPasswordState ? (verificationModalState ?(verificationModalState && NewPassswordModalState ? <NewPassswordModal/> : <VerificationModal NewPasswordSet/>)  : <ForgotPasswordModal/> ) : (registerModalState ? (verificationModalState ? <VerificationModal/> : <RegisterModal/>): <LoginArea/>)  
                         }

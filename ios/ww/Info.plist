@@ -60,6 +60,13 @@
 		<string>Quicksand-Medium.ttf</string>
 		<string>Quicksand-Regular.ttf</string>
 		<string>Quicksand-SemiBold.ttf</string>
+		<string>BalooBhai-Regular.ttf</string>
+		<string>BarlowSemiCondensed-Medium.ttf</string>
+		<string>Khula-Bold.ttf</string>
+		<string>Khula-ExtraBold.ttf</string>
+		<string>Khula-Light.ttf</string>
+		<string>Khula-Regular.ttf</string>
+		<string>Khula-SemiBold.ttf</string>
 		<string>AntDesign.ttf</string>
 		<string>Entypo.ttf</string>
 		<string>EvilIcons.ttf</string>
@@ -76,13 +83,6 @@
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
-		<string>BalooBhai-Regular.ttf</string>
-		<string>BarlowSemiCondensed-Medium.ttf</string>
-		<string>Khula-Bold.ttf</string>
-		<string>Khula-ExtraBold.ttf</string>
-		<string>Khula-Light.ttf</string>
-		<string>Khula-Regular.ttf</string>
-		<string>Khula-SemiBold.ttf</string>
 	</array>
 </dict>
 </plist>

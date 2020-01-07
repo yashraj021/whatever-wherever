@@ -11,8 +11,8 @@ import com.facebook.react.shell.MainReactPackage;
 import java.util.Arrays;
 import java.util.ArrayList;
 
-import com.ww.BuildConfig;
-import com.ww.R;
+import com.ww2.BuildConfig;
+import com.ww2.R;
 
 // react-native-vector-icons
 import com.oblador.vectoricons.VectorIconsPackage;

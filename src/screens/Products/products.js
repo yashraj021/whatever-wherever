@@ -3,6 +3,7 @@ import {RFValue } from "react-native-responsive-fontsize";
 import {dimension} from '../../constants/constants';
 import SearchBar from '../../components/SearchBar/searchBar.component';
 import t from 'typy';
+import Icon from 'react-native-vector-icons/Ionicons'
 
 import {
     StyleSheet,
@@ -15,7 +16,7 @@ import {
 
 import {storeItems} from '../../data/storeItems';
 
-const Item = ({value}) => {
+const Item = ({value, type}) => {
 return (
     <View style = {styles.storeWrapper}>
         <View style = {styles.shopIcon}>
@@ -24,6 +25,15 @@ return (
             <Text style = {styles.storeName}>
                 {value.name}
             </Text>
+            <Text>
+                {`${type}`.charAt(0).toUpperCase() + `${type}`.slice(1) + ' Shop'}
+            </Text>
+            <View style = {{flexDirection: 'row', alignItems: 'center'}}>
+                <Text style= {{marginRight: 5}}>
+                    {`Rating:- ${value.rating}`}
+                </Text>
+                <Icon name="md-star" size={15} color="#fa9819" />
+            </View>
         </TouchableOpacity>
     </View>
 )}
@@ -57,7 +67,7 @@ class Product extends React.PureComponent {
                     data={
                         this.filteredData()
                     }
-                    renderItem={({item}) => <Item value={item} />}
+                    renderItem={({item}) => <Item value={item} type = {this.props.value.type}/>}
                     keyExtractor={item => item.id.toString()}
                     showsVerticalScrollIndicator = {false}
                 />        
@@ -98,6 +108,7 @@ class Product extends React.PureComponent {
     shopDetails: {
         elevation: 2,
         marginRight: 5,
+        justifyContent: 'space-between',
         height: dimension.height * 0.1,
         width: '70%',
         backgroundColor: 'white',

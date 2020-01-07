@@ -32,8 +32,14 @@ class LoginArea extends React.Component{
     }
 
     logInHandler = () => {
-        this.props.setLogIn();
-        goToTabs();
+        if(this.state.phoneno && this.state.password) {
+            this.props.setLogIn();
+            goToTabs();
+        }
+        else {
+            alert('Field Empty')
+        }
+        
     }
 
     render() {
