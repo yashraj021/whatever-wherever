@@ -1,7 +1,8 @@
 import React from 'react';
 import {RFValue } from "react-native-responsive-fontsize";
 import {dimension} from '../../constants/constants';
-import SearchBar from '../../components/searchBar/searchBar.component';
+import SearchBar from '../../components/SearchBar/searchBar.component';
+import t from 'typy';
 
 import {
     StyleSheet,
@@ -12,36 +13,59 @@ import {
   
   } from 'react-native';
 
-  import {storeItems} from '../../data/storeItems';
+import {storeItems} from '../../data/storeItems';
 
-  const Item = ({value}) => {
-    return (
-        <View style = {styles.storeWrapper}>
-            <View style = {styles.shopIcon}>
+const Item = ({value}) => {
+return (
+    <View style = {styles.storeWrapper}>
+        <View style = {styles.shopIcon}>
+        </View>
+        <TouchableOpacity style = {styles.shopDetails}>
+            <Text style = {styles.storeName}>
+                {value.name}
+            </Text>
+        </TouchableOpacity>
+    </View>
+)}
+
+
+class Product extends React.PureComponent {
+
+    state = {
+        data: t(storeItems, this.props.value.type).safeObject,
+        searchfield: '',
+       
+    }
+
+    searchHandler = (text) => {
+        this.setState({
+            searchfield: text
+        })
+    }
+    
+    filteredData = () => this.state.data.filter(data => {
+        return data.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
+    })
+        
+
+    render() {
+
+        return(
+            <View style = {styles.pageWrapper}>
+                <SearchBar inputHandler = {(text) => this.searchHandler(text)} />
+                <FlatList
+                    data={
+                        this.filteredData()
+                    }
+                    renderItem={({item}) => <Item value={item} />}
+                    keyExtractor={item => item.id.toString()}
+                    showsVerticalScrollIndicator = {false}
+                />        
             </View>
-            <TouchableOpacity style = {styles.shopDetails}>
-                <Text style = {styles.storeName}>
-                    {value.name}
-                </Text>
-            </TouchableOpacity>
-        </View>
-    );
-  }
-  
-
-  const Product = (props) => (
-        <View style = {styles.pageWrapper}>
-            <SearchBar/>
-            <FlatList
-                data={
-                    props.value.type === 'vegetable' ? storeItems.vegetable: storeItems.oil
-                }
-                renderItem={({item}) => <Item value={item} />}
-                keyExtractor={item => item.id.toString()}
-                showsVerticalScrollIndicator = {false}
-            />        
-        </View>
-  );
+        );
+    }
+}
+    
 
 
   const styles = StyleSheet.create({

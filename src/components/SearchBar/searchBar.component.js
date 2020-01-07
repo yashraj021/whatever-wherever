@@ -9,11 +9,15 @@ import {
   
   } from 'react-native';
 
-const SearchBar = () => (
+const SearchBar = ({inputHandler}) => (
 
 <View style = {styles.searchWrapper}>
     <Icon name="search" size={40} color="#900" />
-    <TextInput style = {{marginLeft: 10}} placeholder = "Search Store Names" />
+    <TextInput 
+        style = {{marginLeft: 10, width: '100%'}} 
+        placeholder = "Search Store Names"
+        onChangeText = {(text) => inputHandler(text)}
+    />
 </View>
 
 );
