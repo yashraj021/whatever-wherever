@@ -14,6 +14,7 @@ import {
   StyleSheet,
   View,
   Text,
+  ScrollView
 } from 'react-native';
 
 class LoginArea extends React.Component{

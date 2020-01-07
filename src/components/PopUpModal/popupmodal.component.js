@@ -45,21 +45,19 @@ const PopUpModal = (props) => {
         >
             <TouchableWithoutFeedback onPress = {Keyboard.dismiss}>
                 <View style = {styles.modalSlide} behavior='padding'>
-                    <View style = {styles.modalSpace}>
+                    <KeyboardAvoidingView style = {styles.modalSpace} behavior='padding' keyboardVerticalOffset ={40}>
                         <Text style = {styles.header_login}>
                         {
                             forgotPasswordState ? (verificationModalState ? 'Verification' : 'Forgot Password' ) : (registerModalState ? (verificationModalState ? 'Verification' : 'Register'): 'Login') 
                         }
                         </Text>
-                        <Text>
-                            *Test Input*
-                        </Text>
+
                         {
                             forgotPasswordState ? (verificationModalState ?(verificationModalState && NewPassswordModalState ? <NewPassswordModal/> : <VerificationModal NewPasswordSet/>)  : <ForgotPasswordModal/> ) : (registerModalState ? (verificationModalState ? <VerificationModal/> : <RegisterModal/>): <LoginArea/>)  
                         }
                        
                 
-                    </View>
+                    </KeyboardAvoidingView>
                 </View>
             </TouchableWithoutFeedback>
         </Modal>
@@ -75,26 +73,23 @@ const modalWidth = dimension.width;
 const styles = StyleSheet.create({
     modalSlide: {
         height: '100%',
-        display: 'flex',
-        flexWrap: 'wrap',
         flexDirection: 'column-reverse',
     },
     modalSpace: {
         height: '33%',
-        display: 'flex',
         alignItems: 'center',
         backgroundColor: '#fafafa',
         borderTopRightRadius: 50,
         borderTopLeftRadius: 50,
-        justifyContent: 'space-around'
     },
     
     header_login: {
         paddingTop: 10,
         fontFamily: 'Quicksand-Light',
-        fontSize: RFValue(20),
+        fontSize: RFValue(30, dimension.height),
         textAlign: "center",
         letterSpacing: 10,
+        marginBottom: 20
     }
 })
 
